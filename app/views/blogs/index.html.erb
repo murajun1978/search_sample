@@ -2,9 +2,10 @@
 
 <%= form_tag :search_blogs, method: :get do %>
   <%= text_field_tag :comment, params[:comment] %>
+  <%= select_tag :lang, options_for_select(Blog::LANG_SELECTION, params[:lang].to_s), { include_blank: true } %>
   <%= submit_tag "検索" %>
 <% end %>
-
+<%= params[:lang] %>
 <table>
   <tr>
     <th>Comment</th>
